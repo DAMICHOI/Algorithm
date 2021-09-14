@@ -33,7 +33,7 @@ public class B10162_전자레인지 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         int T = Integer.parseInt(br.readLine());
-        int[] buttonArr = {300, 1*60, 10};
+        int[] buttonArr = {300, 60, 10};
         int count = 0;
 
         for (int i=0; i<buttonArr.length; i++) {

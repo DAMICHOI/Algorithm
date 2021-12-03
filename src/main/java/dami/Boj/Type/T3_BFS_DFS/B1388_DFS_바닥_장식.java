@@ -1,4 +1,4 @@
-package dami.Boj.Type.T3_DFS_DFS;
+package dami.Boj.Type.T3_BFS_DFS;
 
 import java.io.*;
 import java.util.StringTokenizer;

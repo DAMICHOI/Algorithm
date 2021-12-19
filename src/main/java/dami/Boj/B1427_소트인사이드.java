@@ -1,4 +1,4 @@
-package dami.Boj.Type;
+package dami.Boj;
 
 import java.io.BufferedReader;
 import java.io.IOException;

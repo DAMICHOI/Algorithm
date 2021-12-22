@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class B2751_수_정렬하기2 {
+public class B2751_수_정렬하기_2 {
 	public static void main(String[] args) throws IOException {
 		// 시간 초과
 		/*BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

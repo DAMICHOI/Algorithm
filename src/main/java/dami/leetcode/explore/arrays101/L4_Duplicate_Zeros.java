@@ -1,8 +1,8 @@
 package dami.leetcode.explore.arrays101;
 
-class L4_Duplicate_Zone {
+class L4_Duplicate_Zeros {
 	public static void main(String[] args) {
-		L4_Duplicate_Zone solution = new L4_Duplicate_Zone();
+		L4_Duplicate_Zeros solution = new L4_Duplicate_Zeros();
 		solution.duplicateZeros(new int[] {1, 0, 2, 3, 0, 4, 5, 0});
 		// solution.duplicateZeros(new int[] {0, 0, 0, 0, 0, 0, 0});
 	}

@@ -1,8 +1,8 @@
-package dami.leetcode;
+package dami.leetcode.explore.arrays101;
 
-public class L1299_Replace_Elements_with_Greatest_Element_on_Right_Side {
+public class L10_Replace_Elements_with_Greatest_Element_on_Right_Side {
 	public static void main(String[] args) {
-		L1299_Replace_Elements_with_Greatest_Element_on_Right_Side solution = new L1299_Replace_Elements_with_Greatest_Element_on_Right_Side();
+		L10_Replace_Elements_with_Greatest_Element_on_Right_Side solution = new L10_Replace_Elements_with_Greatest_Element_on_Right_Side();
 		System.out.println(solution.replaceElements(new int[] {17, 18, 5, 4, 6, 1}));
 		System.out.println(solution.replaceElements(new int[] {400}));
 	}

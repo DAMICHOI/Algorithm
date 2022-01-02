@@ -1,8 +1,8 @@
-package dami.leetcode;
+package dami.leetcode.explore.arrays101;
 
-public class L941_Vaild_Mountain_Array {
+public class L9_Vaild_Mountain_Array {
 	public static void main(String[] args) {
-		L941_Vaild_Mountain_Array solution = new L941_Vaild_Mountain_Array();
+		L9_Vaild_Mountain_Array solution = new L9_Vaild_Mountain_Array();
 		System.out.println(solution.validMountainArray(new int[] {2, 1}));
 		System.out.println(solution.validMountainArray(new int[] {3, 5, 5}));
 		System.out.println(solution.validMountainArray(new int[] {0, 3, 2, 1}));

@@ -1,7 +1,8 @@
 package dami.codingtest;
 
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 Given an integer k and a list of integers, count the number of distinct valid pairs of integers (a, b) in the list for which a + k = b. Two pairs of integers (a, b) and (c, d) are considered distinct if at least one element of (a, b) does not also belong to (c, d). Note that the elements in a pair might be the same element in the array. An instance of this is below where k = 0.
@@ -38,11 +39,42 @@ public class CountingPair {
 	public static void main(String[] args) {
 		CountingPair countingPair = new CountingPair();
 
-		System.out.println(countingPair.solution(new int[] {1, 1, 1, 2}, 1));
-		System.out.println(countingPair.solution(new int[] {1, 1, 1, 2}, 0));
+		System.out.println(countingPair.solution(new int[] {1, 1, 1, 2}, 1));	// result = 1
+		System.out.println(countingPair.solution(new int[] {1, 1, 1, 2}, 0));	// result = 2
+		System.out.println(countingPair.solution(new int[] {1, 2, 3, 4, 5, 6}, 3));	// result = 3
 	}
 
 	private int solution(int[] number, int k) {
+		ArrayList<Integer> list = new ArrayList<>();
+		Map<Integer, Integer> map = new HashMap<>();
+		int count = 0;
+
+		// 중복되지 않은 숫자 추가
+		for (int i = 0; i < number.length; i++) {
+			// list 에 포함되지 않은 값일 경우
+			if (!list.contains(number[i])) {
+				list.add(number[i]);    // list에 추가
+				map.put(number[i] - k, number[i]);    // 현재 수의 보수 값을 key로 하고 현재 수를 value로 하는 데이터 삽입
+			}
+		}
+
+		// System.out.println("list=" + list);
+		// System.out.println("map=" + map);
+
+		for (int i = 0; i < list.size(); i++) {
+			// 현재 수(list.get(i))의 보수가 있는지 확인
+			if (map.containsKey(list.get(i))) {
+				// 있을 경우, count + 1
+				// System.out.println("contains mapValue=" + map.get(list.get(i)) + " listValue=" + list.get(i));
+				count++;
+			}
+		}
+
+		return count;
+	}
+
+	/*
+	private int solution2(int[] number, int k) {
 		ArrayList<Pair> list = new ArrayList<>();
 		int count = 0;
 
@@ -60,8 +92,10 @@ public class CountingPair {
 
 		return count;
 	}
+	*/
 }
 
+/*
 class Pair {
 	int a;
 	int b;
@@ -98,3 +132,4 @@ class Pair {
 			'}';
 	}
 }
+*/

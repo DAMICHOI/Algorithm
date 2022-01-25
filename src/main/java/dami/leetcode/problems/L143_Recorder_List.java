@@ -1,4 +1,4 @@
-package dami.leetcode;
+package dami.leetcode.problems;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -40,30 +40,5 @@ public class L143_Recorder_List {
 		}
 		deque.pop().next = null;
 
-	}
-}
-
-class ListNode {
-	int val;
-	ListNode next;
-
-	ListNode() {
-	}
-
-	ListNode(int val) {
-		this.val = val;
-	}
-
-	ListNode(int val, ListNode next) {
-		this.val = val;
-		this.next = next;
-	}
-
-	@Override
-	public String toString() {
-		return "ListNode{" +
-			"val=" + val +
-			", next=" + next +
-			'}';
 	}
 }

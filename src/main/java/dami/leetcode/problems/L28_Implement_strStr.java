@@ -22,12 +22,12 @@ public class L28_Implement_strStr {
 			return -1;
 		}
 
-		for (int i = 0; i <= haystackLen-needleLen; i++) {
-			int j=0;
-			while (j<needleLen&&haystack.charAt(i+j)==needle.charAt(j)) {
+		for (int i = 0; i <= haystackLen - needleLen; i++) {
+			int j = 0;
+			while (j < needleLen && haystack.charAt(i + j) == needle.charAt(j)) {
 				j++;
 			}
-			if (j==needleLen) {
+			if (j == needleLen) {
 				return i;
 			}
 		}

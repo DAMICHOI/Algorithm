@@ -10,8 +10,20 @@ public class L771_Jewels_and_Stones {
 		System.out.println(solution.numJewelsInStones("z", "ZZ"));
 	}
 
-	// HashMap을 이용한 풀이 (Runtime: 4ms, Memory: 42.7MB)
+	// Runtime: 1ms, Memory : 42.2MB
 	private int numJewelsInStones(String jewels, String stones) {
+		int jewelCount = 0;
+
+		for (int i = 0; i < stones.length(); i++) {
+			if (jewels.indexOf(stones.charAt(i)) != -1) {
+				jewelCount++;
+			}
+		}
+		return jewelCount;
+	}
+
+	// HashMap을 이용한 풀이 (Runtime: 4ms, Memory: 42.7MB)
+	/*private int numJewelsInStones(String jewels, String stones) {
 		Map<Character, Integer> stone = new HashMap<>();
 		int jewelCount = 0;
 
@@ -24,7 +36,7 @@ public class L771_Jewels_and_Stones {
 		}
 
 		return jewelCount;
-	}
+	}*/
 
 	// 다른 사람 풀이 (Runtime: 1ms, Memory: 41.1MB)
 	/*private int numJewelsInStones(String jewels, String stones) {

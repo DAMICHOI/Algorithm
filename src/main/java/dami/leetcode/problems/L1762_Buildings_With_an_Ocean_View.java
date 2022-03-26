@@ -1,13 +1,13 @@
-package dami.fLab;
+package dami.leetcode.problems;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-public class F02_OceanView {
+public class L1762_Buildings_With_an_Ocean_View {
 	public static void main(String[] args) {
-		F02_OceanView solution = new F02_OceanView();
+		L1762_Buildings_With_an_Ocean_View solution = new L1762_Buildings_With_an_Ocean_View();
 		for (int number : solution.findOceanViewBuildings(new int[] {4, 2, 3, 1})) {
 			System.out.print(number);
 		}

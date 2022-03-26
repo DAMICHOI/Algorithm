@@ -1,9 +1,9 @@
-package dami.fLab;
+package dami.leetcode.problems;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class F01_MaxStack {
+public class L716_Max_Stack {
 	public static void main(String[] args) {
 		MaxStack stack = new MaxStack();
 		stack.push(5);

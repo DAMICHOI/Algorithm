@@ -21,55 +21,57 @@ N * M 크기의 얼음 틀이 있다. 구멍이 뚫려 있는 부분은 0, 칸�
 - 한 번에 만들 수 있는 아이스크림의 개수를 출력한다.
 */
 public class D05_01_음료수_열려_먹기 {
-    private static int n;
-    private static int m;
-    private static int graph[][];
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
-        graph = new int[n][m];
-        int result = 0;
+	private static int n;
+	private static int m;
+	private static int graph[][];
 
-        // 2차원 배열에 정보 입력 받기
-        for (int i=0; i<n; i++) {
-            String[] arr = br.readLine().split("");
-            for (int j=0; j<m; j++) {
-                graph[i][j] = Integer.parseInt(arr[j]);
-            }
-        }
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		n = Integer.parseInt(st.nextToken());
+		m = Integer.parseInt(st.nextToken());
+		graph = new int[n][m];
+		int result = 0;
 
-        // 모든 노드(위치)에 대하여 음료수 채우기
-        for (int i=0; i<n; i++) {
-            for (int j=0; j<m; j++) {
-                if (dfs(i, j) == true) {
-                    result++;
-                }
-            }
-        }
-        bw.write(String.valueOf(result));
-        bw.flush();
-        bw.close();
-    }
+		// 2차원 배열에 정보 입력 받기
+		for (int i = 0; i < n; i++) {
+			String str = br.readLine();
+			for (int j = 0; j < m; j++) {
+				graph[i][j] = str.charAt(j) - '0';
+			}
+		}
 
-    public static boolean dfs(int x, int y) {
-        // 주어진 범위를 벗어나는 경우 즉시 종료
-        if (x <= -1 || x >= n || y <= -1 || y >= m) {
-            return false;
-        }
+		// 모든 노드(위치)에 대하여 음료수 채우기
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				// 현재 위치에서 DFS 수행 (반환 값이 true일 경우, result + 1)
+				if (dfs(i, j)) {
+					result++;
+				}
+			}
+		}
+		bw.write(String.valueOf(result));	// 정답 출력
+		bw.flush();
+		bw.close();
+	}
 
-        // 현재 노드를 아직 방문하지 않았다면,
-        if (graph[x][y] == 0) {
-            graph[x][y] = 1; // 해당 노드 방문 처리
-            // 상,하,좌,우의 위치도 모두 재귀적으로 호출
-            dfs(x-1, y);    // 상
-            dfs(x+1, y);    // 하
-            dfs(x,y-1);     // 좌
-            dfs(x, y+1);    // 우
-            return true;
-        }
-        return false;
-    }
+	public static boolean dfs(int x, int y) {
+		// 주어진 범위를 벗어나는 경우 즉시 종료
+		if (x <= -1 || x >= n || y <= -1 || y >= m) {
+			return false;
+		}
+
+		// 현재 노드를 아직 방문하지 않았다면,
+		if (graph[x][y] == 0) {
+			graph[x][y] = 1; // 해당 노드 방문 처리
+			// 상,하,좌,우의 위치도 모두 재귀적으로 호출
+			dfs(x - 1, y);    // 상
+			dfs(x + 1, y);    // 하
+			dfs(x, y - 1);     // 좌
+			dfs(x, y + 1);    // 우
+			return true;
+		}
+		return false;
+	}
 }

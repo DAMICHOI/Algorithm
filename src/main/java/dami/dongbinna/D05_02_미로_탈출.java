@@ -25,88 +25,89 @@ import java.util.*;
 10
 */
 public class D05_02_미로_탈출 {
-    private static int n, m;
-    private static int[][] graph;
+	private static int n, m;
+	private static int[][] graph;
 
-    // 이동할 네 방향 정의 (상, 하, 좌, 우)
-    private static final int[] dx = {-1, 1, 0, 0};
-    private static final int[] dy = {0, 0, -1, 1};
+	// 이동할 네 방향 정의 (상, 하, 좌, 우)
+	private static final int[] dx = {-1, 1, 0, 0};
+	private static final int[] dy = {0, 0, -1, 1};
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        // n, m을 공백으로 구분하여 입력받기
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
-        graph = new int[n][m];
+		// n, m을 공백으로 구분하여 입력받기
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		n = Integer.parseInt(st.nextToken());
+		m = Integer.parseInt(st.nextToken());
+		graph = new int[n][m];
 
-        // 2차원 리스트의 맵 정보 입력받기
-        for (int i=0; i<n; i++) {
-            String[] str = br.readLine().split("");
-            for (int j=0; j<m; j++) {
-                graph[i][j] = Integer.parseInt(str[j]);
-            }
-        }
+		// 2차원 리스트의 맵 정보 입력받기
+		for (int i = 0; i < n; i++) {
+			String[] str = br.readLine().split("");
+			for (int j = 0; j < m; j++) {
+				graph[i][j] = Integer.parseInt(str[j]);
+			}
+		}
 
-        // BFS를 수행한 결과 출력
-        bw.write(String.valueOf(bfs(0, 0)));
-        bw.flush();
-        bw.close();
-    }
+		// BFS를 수행한 결과 출력
+		bw.write(String.valueOf(bfs(0, 0)));
+		bw.flush();
+		bw.close();
+	}
 
-    public static int bfs(int x, int y) {
-        // 큐(Queue) 구현을 위해 Queue 라이브러리 사용
-        Queue<Node> queue = new LinkedList<>();
-        queue.offer(new Node(x, y));
+	public static int bfs(int x, int y) {
+		// 큐(Queue) 구현을 위해 Queue 라이브러리 사용
+		Deque<Node> queue = new ArrayDeque<>();
+		queue.offer(new Node(x, y));
 
-        // 큐가 빌 때까지 반복하기
-        while (!queue.isEmpty()) {
-            Node node = queue.poll();
-            x = node.getIndex();
-            y = node.getDistance();
+		// 큐가 빌 때까지 반복하기
+		while (!queue.isEmpty()) {
+			Node node = queue.poll();
+			x = node.getIndex();
+			y = node.getDistance();
 
-            // 현재 위치에서 네 방향으로의 위치 확인
-            for (int i=0; i<4; i++) {
-                int nx = x + dx[i];
-                int ny = y + dy[i];
+			// 현재 위치에서 네 방향으로의 위치 확인
+			for (int i = 0; i < 4; i++) {
+				int nx = x + dx[i];
+				int ny = y + dy[i];
 
-                // 미로 찾기 공간을 벗어난 경우 무시
-                if (nx < 0 || ny < 0 || nx >= n || ny >= m)
-                    continue;
+				// 미로 찾기 공간을 벗어난 경우 무시
+				if (nx < 0 || ny < 0 || nx >= n || ny >= m)
+					continue;
 
-                // 벽인 경우 무시
-                if (graph[nx][ny] == 0)
-                    continue;
+				// 벽인 경우 무시
+				if (graph[nx][ny] == 0)
+					continue;
 
-                // 해당 노드를 처음 반복하는 경우에만 최단 거리 기록
-                if (graph[nx][ny] == 1) {
-                    graph[nx][ny] = graph[x][y] + 1;
-                    queue.offer(new Node(nx, ny));
-                }
-            }
-        }
+				// 해당 노드를 처음 반복하는 경우에만 최단 거리 기록
+				if (graph[nx][ny] == 1) {
+					graph[nx][ny] = graph[x][y] + 1;
+					queue.offer(new Node(nx, ny));
+				}
+			}
+		}
 
-        // 가장 오른쪽 아래까지의 최단 거리 반환
-        return graph[n-1][m-1];
-    }
+		// 가장 오른쪽 아래까지의 최단 거리 반환
+		return graph[n - 1][m - 1];
+	}
+
+	static class Node {
+		private int index;
+		private int distance;
+
+		public Node(int index, int distance) {
+			this.index = index;
+			this.distance = distance;
+		}
+
+		public int getIndex() {
+			return this.index;
+		}
+
+		public int getDistance() {
+			return this.distance;
+		}
+	}
 }
 
-class Node {
-    private int index;
-    private int distance;
-
-    public Node(int index, int distance) {
-        this.index = index;
-        this.distance = distance;
-    }
-
-    public int getIndex() {
-        return this.index;
-    }
-
-    public int getDistance() {
-        return this.distance;
-    }
-}

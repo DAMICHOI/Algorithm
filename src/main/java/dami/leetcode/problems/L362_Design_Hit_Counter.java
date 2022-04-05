@@ -20,10 +20,12 @@ public class L362_Design_Hit_Counter {
 class HitCounter {
 	Queue<Integer> queue = new LinkedList<>();
 
+	//O(1)
 	public void hit(int timestamp) {
 		queue.add(timestamp);
 	}
 
+	//O(n)
 	public int getHits(int timestamp) {
 		while (!queue.isEmpty() && queue.size() > 0 && timestamp - queue.peek() >= 300) {
 			queue.poll();

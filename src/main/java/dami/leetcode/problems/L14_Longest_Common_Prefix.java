@@ -1,13 +1,12 @@
-package dami.leetcode;
+package dami.leetcode.problems;
 
 public class L14_Longest_Common_Prefix {
 	public static void main(String[] args) {
-		L14_Longest_Common_Prefix solution = new L14_Longest_Common_Prefix();
-		System.out.println(solution.longestCommonPrefix(new String[] {"flower", "flow", "flight"}));
-		System.out.println(solution.longestCommonPrefix(new String[] {"dog", "racecar", "car"}));
+		System.out.println(longestCommonPrefix(new String[] {"flower", "flow", "flight"}));
+		System.out.println(longestCommonPrefix(new String[] {"dog", "racecar", "car"}));
 	}
 
-	private String longestCommonPrefix(String[] strs) {
+	private static String longestCommonPrefix(String[] strs) {
 		String prefix = "";
 
 		if (strs.length == 0) {

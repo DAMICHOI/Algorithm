@@ -1,4 +1,4 @@
-package dami.leetcode;
+package dami.leetcode.problems;
 
 public class L1446_Consecutive_Characters {
 	public static void main(String[] args) {

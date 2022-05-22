@@ -1,4 +1,4 @@
-package dami.leetcode;
+package dami.leetcode.problems;
 
 public class L231_Power_of_Two {
 	public static void main(String[] args) {

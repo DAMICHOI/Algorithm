@@ -1,8 +1,6 @@
-package dami.leetcode;
+package dami.leetcode.problems;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class L1_Two_Sum {

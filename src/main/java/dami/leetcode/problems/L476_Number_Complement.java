@@ -1,4 +1,4 @@
-package dami.leetcode;
+package dami.leetcode.problems;
 
 public class L476_Number_Complement {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package dami.leetcode;
+package dami.leetcode.problems;
 
 import java.util.ArrayList;
 import java.util.Arrays;

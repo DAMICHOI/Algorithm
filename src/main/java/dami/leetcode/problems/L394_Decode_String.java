@@ -1,8 +1,7 @@
-package dami.leetcode;
+package dami.leetcode.problems;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Stack;
 
 public class L394_Decode_String {
 	public static void main(String[] args) {

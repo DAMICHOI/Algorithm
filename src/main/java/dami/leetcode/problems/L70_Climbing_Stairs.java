@@ -4,6 +4,7 @@ public class L70_Climbing_Stairs {
 	public static void main(String[] args) {
 		System.out.println(climbStairs(2));
 		System.out.println(climbStairs(3));
+		System.out.println(climbStairs(4));
 		System.out.println(climbStairs(7));
 	}
 

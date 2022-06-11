@@ -5,6 +5,7 @@ public class L322_Coin_Change {
 		System.out.println(coinChange(new int[] {1, 2, 5}, 11));
 		System.out.println(coinChange(new int[] {2}, 3));
 		System.out.println(coinChange(new int[] {1}, 0));
+		System.out.println(coinChange(new int[] {1, 2, 3, 5, 6, 9, 10, 11, 13, 14}, 2000));
 	}
 
 	// Buttom Up 방식

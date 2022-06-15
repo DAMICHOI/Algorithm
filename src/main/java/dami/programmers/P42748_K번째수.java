@@ -1,4 +1,4 @@
-package dami.programmers.level1;
+package dami.programmers;
 
 import java.util.Arrays;
 

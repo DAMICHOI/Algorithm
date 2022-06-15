@@ -1,6 +1,4 @@
-package dami.programmers.level1;
-
-import java.util.HashMap;
+package dami.programmers;
 
 public class P81301_숫자_문자열과_영단어 {
 	public static void main(String[] args) {

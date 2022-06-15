@@ -1,4 +1,4 @@
-package dami.programmers.level1;
+package dami.programmers;
 
 public class P12940_최대공약수와_최소공배수 {
 	public static void main(String[] args) {

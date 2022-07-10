@@ -24,18 +24,31 @@ public class L938_Range_Sum_of_BST {
 	}
 
 	private static int rangeSumBST(TreeNode root, int low, int high) {
-		if (root == null) {
+		if (root == null)
 			return 0;
-		}
 
-		int sum = 0;
-		// 범주 안에 속해 있으면 노드 더하기
-		if (low <= root.val && root.val <= high) {
-			sum += root.val;
+		if (root.val < low) {
+			return rangeSumBST(root.right, low, high);
 		}
-
-		sum += rangeSumBST(root.left, low, high);    // 노드의 왼쪽 탐색
-		sum += rangeSumBST(root.right, low, high);    // 노드의 오른쪽 탐색
-		return sum;
+		if (root.val > high) {
+			return rangeSumBST(root.left, low, high);
+		}
+		return root.val + rangeSumBST(root.left, low, high) + rangeSumBST(root.right, low, high);
 	}
+
+	// private static int rangeSumBST(TreeNode root, int low, int high) {
+	// 	if (root == null) {
+	// 		return 0;
+	// 	}
+	//
+	// 	int sum = 0;
+	// 	// 범주 안에 속해 있으면 노드 더하기
+	// 	if (low <= root.val && root.val <= high) {
+	// 		sum += root.val;
+	// 	}
+	//
+	// 	sum += rangeSumBST(root.left, low, high);    // 노드의 왼쪽 탐색
+	// 	sum += rangeSumBST(root.right, low, high);    // 노드의 오른쪽 탐색
+	// 	return sum;
+	// }
 }
